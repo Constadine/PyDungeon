@@ -26,9 +26,14 @@ class Explore:
             2 - Find place to heal..
             3 - Search for treasure..\n""")
             sleep(1)
-            if choice == 1:   # add exp
+            if choice == 1:   
                 random_event = randrange(0, len(events["exp"]))
                 print(events["exp"][random_event])
+                exp_gained = randrange(5, 21)
+                character.exp += exp_gained
+                sleep(1)
+                print(f"You've gained {exp_gained} exp!")
+                sleep(1)
                 break
             elif choice == 2:
                 if character.health == character.maxhealth:

@@ -24,23 +24,26 @@ def get_name(race):
         return random_name
 
 
-def get_menu_choice():
+def get_menu_choice():  # Enter Market
 
     print("Welcome to Python-Dungeon!")
     sleep(1)
 
     choice = get_int("""
     1 - Enter Dungeon
-    2 - Print stats
+    2 - Print stats  
     3 - Exit
     """)
     return choice
 
 
 def update_stats(stats_dictionary, hero, char, no_dungeons, kills):
+    stats_dictionary[hero]["exp"] += char.exp
     stats_dictionary[hero]["coins"] += char.currency
     stats_dictionary[hero]["dungeons_cleared"] += no_dungeons
     stats_dictionary[hero]["kills"] += kills
+    
+    
 
 
 def check_account(hero, stats_dictionary):
@@ -53,8 +56,8 @@ def check_account(hero, stats_dictionary):
                 break
         else:
             stats_dictionary[hero] = {}
+            stats_dictionary[hero]["exp"] = 0
             stats_dictionary[hero]["coins"] = 0
             stats_dictionary[hero]["dungeons_cleared"] = 0
-            stats_dictionary[hero]["kills"] = 0
-
+            stats_dictionary[hero]["kills"] = 0 
             print(f"First time {hero}? Good luck.\n")
