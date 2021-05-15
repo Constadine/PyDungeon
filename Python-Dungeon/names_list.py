@@ -1,0 +1,21 @@
+orcs = ["Almthu",
+        "Sonagh",
+        "Aguk",
+        "Gnarg",
+        "Wraog",
+        "Noogugh",
+        "Murkub",
+        "Matuk",
+        "Bulgan",
+        "Ditgurat"]
+
+goblins = ["Gard",
+           "Kisz",
+           "Stralk",
+           "Froikt",
+           "Gung",
+           "Vryrvelk",
+           "Grushisb",
+           "Heerzielx",
+           "Styrgax",
+           "Poszeerd"]
