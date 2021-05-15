@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "./Python-Dungeon",
+        "./Pokemon"
+    ],
+    "python.pythonPath": "C:\\Python\\Python3.9.4\\python.exe"
+}

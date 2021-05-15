@@ -10,7 +10,7 @@ from handle_explore import *
 
 
 def main():
-    seed(datetime.now())
+    # seed(datetime.now())
     try:
         with open("player_stats.json") as f:
             player_stats = json.load(f)
