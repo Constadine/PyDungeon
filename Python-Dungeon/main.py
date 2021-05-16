@@ -35,15 +35,14 @@ def main():
             while True:
 
                 turn += 1
-                random_race = available_race_for_mobs_list[randrange(
-                    0, len(available_race_for_mobs_list))]
+                random_race = available_race_for_mobs_list[randrange(0, len(available_race_for_mobs_list))]
 
                 enemy = Npc(get_name(random_race()), random_race())
 
                 print(f"\nTurn {turn}")
 
                 battle_event = Battle(me, enemy)
-                kills += battle_event.fight()
+                kills  += battle_event.fight()
 
                 if turn == random_size_dungeon:
                     print("You've captured this dungeon!")
@@ -63,7 +62,7 @@ def main():
         elif menu_choice == 3:
             with open("player_stats.json", "w") as f:
                 json.dump(player_stats, f)
-            print("Till next time.")
+            print("May the light never find you..")
             break
 
 

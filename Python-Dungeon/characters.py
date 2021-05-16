@@ -5,8 +5,8 @@ class Character:  # add exp and levels. Health and damage will increase per leve
     def __init__(self, name, race):
         self.name = name
         self.race = race
+        self.level = 1
         self.exp = 0  # earn exp when killing enemies, clearing dungeon and exploring
-        # Have a chance to loot when exploring. Create market to buy permanent buffs
         self.currency = 0
         self.maxhealth = race.maxhealth
         self.health = race.health
@@ -37,6 +37,7 @@ class Npc:
         self.name = name
         self.race = race
         self.health = race.health
+        self.maxhealth = self.health
         self.mana = race.mana
         self.damage = race.damage
         self.crit_chance = race.crit_chance
