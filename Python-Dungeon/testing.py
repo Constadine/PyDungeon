@@ -2,14 +2,16 @@ from random import randrange
 from names_list import *
 from races import *
 
-test = {}
-hero = "konos"
+dictionary = {"Lunadin": {"race": "Elf", "exp": 286, "coins": 125, "dungeons_cleared": 20, "kills": 119},
+ "Kronk": {"coins": 0, "dungeons_cleared": 1, "kills": 2},
+"Malakovich": {"coins": 54, "dungeons_cleared": 1, "kills": 7}}
 
-test[hero] = {}
+hero = "Lunadin"
+def get_race(hero, alist):
+    for race in alist:
+        if dictionary[hero]["race"] == race.__name__:
+            return race
 
+test = get_race(hero, available_race_for_hero_list)()
 print(test)
 
-test[hero]["Dungeons"] = 0
-test[hero]["kills"] = 0
-
-print(test)

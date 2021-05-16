@@ -48,3 +48,4 @@ class Orc:
 
 
 available_race_for_mobs_list = [Orc, Goblin]
+available_race_for_hero_list = [Elf, Mage]

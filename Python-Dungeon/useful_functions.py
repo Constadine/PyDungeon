@@ -56,8 +56,20 @@ def check_account(hero, stats_dictionary):
                 break
         else:
             stats_dictionary[hero] = {}
+            print(f"Available races\n"+"-"*15)
+            for idx, x in enumerate(available_race_for_hero_list):
+                print(f"{idx +1}: {x.__name__}")
+            choice = get_int("Choose your race: ") - 1
+            race_chosen = available_race_for_hero_list[choice]
+            stats_dictionary[hero]["race"] = race_chosen.__name__
             stats_dictionary[hero]["exp"] = 0
             stats_dictionary[hero]["coins"] = 0
             stats_dictionary[hero]["dungeons_cleared"] = 0
             stats_dictionary[hero]["kills"] = 0 
-            print(f"First time {hero}? Good luck.\n")
+            sleep(1)
+            print(f"\nFirst time {hero}? Good luck.\n")
+
+def get_race(hero, stats_dictionary):
+    for race in available_race_for_hero_list:
+        if stats_dictionary[hero]["race"] == race.__name__:
+            return race()
