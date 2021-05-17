@@ -15,6 +15,7 @@ class Battle:
         kills = 0
         exp_gained = 0
         while True:
+            sleep(1)
             print("-"*15)
             self.print_state()
             print("-"*15)
@@ -46,7 +47,7 @@ class Battle:
                     print(f"{self.enemy.name} landed a critical hit for {enemy_damage}!")
                 else:
                     print(f"{self.enemy.name} dealt {enemy_damage} to {self.player.name}")
-                sleep(1)
+
             else:
                 sleep(1)
                 enemy_damage, crit_check = self.enemy.attack()
@@ -62,7 +63,7 @@ class Battle:
                     print(f"{self.player.name} landed a critical hit for {player_damage}!")
                 else:
                     print(f"{self.player.name} dealt {player_damage} to {self.enemy.name}")
-                sleep(1)
+
 
             if self.enemy.is_dead():
                 kills += 1

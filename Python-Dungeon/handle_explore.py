@@ -64,7 +64,10 @@ class Explore:
                     sleep(1)
                     loot_type = randrange(0, 11)
                     if loot_type < 2:
-                        print("You've found a weapon.")
+                        weapon_price = 100
+                        character.currency += weapon_price
+                        print(f"You've found a weapon worth of {weapon_price} coins.")
+                        
                         sleep(1)
                     elif loot_type > 7:
                         print("You've found a potion!")
@@ -81,3 +84,6 @@ class Explore:
                     print("You've found nothing..")
                     sleep(1)
                     break
+            else:
+                print("Wrong input!")
+                continue

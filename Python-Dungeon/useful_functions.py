@@ -52,7 +52,8 @@ def check_account(hero, stats_dictionary):
     else:
         for key in list(stats_dictionary.keys()):
             if key == hero:
-                print(f"Welcome back {hero}!\n")
+                sleep(1)
+                print(f"\nDelighted to have you back {hero}.\n")
                 break
         else:
             stats_dictionary[hero] = {}
