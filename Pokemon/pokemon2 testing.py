@@ -20,7 +20,7 @@ class Pokemon:
         print(f"{self.name} won a battle and earned {exp_earned} exp!")
         self.exp += exp_earned
         if self.exp >= self.exp_for_level:
-            for x in range(self.exp // self.exp_for_level):
+            for _ in range(self.exp // self.exp_for_level):
                 self.level += 1
                 self.exp = int((self.exp % self.exp_for_level))
                 self.exp_for_level += int((self.exp_for_level * 0.1))

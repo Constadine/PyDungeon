@@ -31,7 +31,7 @@ class Goblin(Npc):
 class Orc(Npc):
     def __init__(self) -> None:
         Npc.__init__(self)
-    
+
     def __init__(self, health=30):
         self.name = orcs[randrange(0, len(orcs))] + " the Orc"
         self.health = health
@@ -42,4 +42,4 @@ class Orc(Npc):
         self.speed = 1
 
 
-available_race_for_mobs_list = [Orc, Goblin]
+available_race_for_mobs_list = ['Orc()', Goblin]

@@ -39,6 +39,7 @@ class Goblin:
 
 class Orc:
     def __init__(self, health=30):
+        self.name = []
         self.health = health
         self.mana = 0
         self.damage = 8
@@ -47,5 +48,5 @@ class Orc:
         self.speed = 1
 
 
-available_race_for_mobs_list = [Orc, Goblin]
-available_race_for_hero_list = [Elf, Mage]
+npc_races = [Orc, Goblin]
+hero_races = [Elf, Mage]

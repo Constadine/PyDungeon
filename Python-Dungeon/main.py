@@ -36,23 +36,26 @@ def main():
             while True:
 
                 turn += 1
-                random_race = available_race_for_mobs_list[randrange(0, len(available_race_for_mobs_list))]
+                random_race = npc_races[randrange(0, len(npc_races))]
 
+                # fix this with inheritance (races_copy.py)
                 enemy = Npc(get_name(random_race()), random_race())
 
                 print(f"\nTurn {turn}")
 
                 battle_event = Battle(me, enemy)
-                kills  += battle_event.fight()
+                kills += battle_event.fight()
 
                 if turn == random_size_dungeon:
                     print("You've captured this dungeon!")
                     dungeon_clear += 1
-                    update_stats(player_stats, hero_name, me, dungeon_clear, kills)
+                    update_stats(player_stats, hero_name,
+                                 me, dungeon_clear, kills)
                     break
                 elif me.is_dead():
                     print("You died.")
-                    update_stats(player_stats, hero_name, me, dungeon_clear, kills)
+                    update_stats(player_stats, hero_name,
+                                 me, dungeon_clear, kills)
                     break
 
                 exploring.explore(me)
