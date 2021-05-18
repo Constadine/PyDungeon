@@ -1,5 +1,4 @@
-from random import randrange
-from races import *
+from races_inher import *
 from names_list import *
 from time import sleep
 
@@ -15,13 +14,13 @@ def get_int(prompt):
     return value
 
 
-def get_name(race):
-    if isinstance(race, Orc):
-        random_name = orcs[randrange(0, len(orcs))] + " the Orc"
-        return random_name
-    elif isinstance(race, Goblin):
-        random_name = ("Goblin " + goblins[randrange(0, len(goblins))])
-        return random_name
+# def get_name(race):
+#     if isinstance(race, Orc):
+#         random_name = orcs[randrange(0, len(orcs))] + " the Orc"
+#         return random_name
+#     elif isinstance(race, Goblin):
+#         random_name = ("Goblin " + goblins[randrange(0, len(goblins))])
+#         return random_name
 
 
 def get_menu_choice():  # Enter Market
@@ -31,7 +30,7 @@ def get_menu_choice():  # Enter Market
 
     choice = get_int("""
     1 - Enter Dungeon
-    2 - Print stats  
+    2 - Print stats
     3 - Exit
     """)
     return choice
@@ -57,10 +56,10 @@ def check_account(hero, stats_dictionary):
             stats_dictionary[hero] = {}
             print(f"Available races\n"+"-"*15)
             for idx, x in enumerate(hero_races):
-                print(f"{idx +1}: {x.__name__}")
+                print(f"{idx +1}: {x}")
             choice = get_int("Choose your race: ") - 1
             race_chosen = hero_races[choice]
-            stats_dictionary[hero]["race"] = race_chosen.__name__
+            stats_dictionary[hero]["race"] = race_chosen
             stats_dictionary[hero]["exp"] = 0
             stats_dictionary[hero]["coins"] = 0
             stats_dictionary[hero]["dungeons_cleared"] = 0
@@ -69,7 +68,7 @@ def check_account(hero, stats_dictionary):
             print(f"\nFirst time {hero}? Good luck.\n")
 
 
-def get_race(hero, stats_dictionary):
+def set_player(hero, stats_dictionary):
     for race in hero_races:
-        if stats_dictionary[hero]["race"] == race.__name__:
-            return race()
+        if stats_dictionary[hero]["race"] == race:
+            return eval(race + "(hero)")

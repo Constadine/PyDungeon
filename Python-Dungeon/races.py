@@ -1,4 +1,3 @@
-from random import randrange
 from names_list import *
 
 # Spell list!!

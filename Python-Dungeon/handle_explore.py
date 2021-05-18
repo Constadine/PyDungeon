@@ -26,7 +26,7 @@ class Explore:
             2 - Find place to heal..
             3 - Search for treasure..\n""")
             sleep(1)
-            if choice == 1:   
+            if choice == 1:
                 random_event = randrange(0, len(events["exp"]))
                 print(events["exp"][random_event])
                 exp_gained = randrange(5, 21)
@@ -66,8 +66,9 @@ class Explore:
                     if loot_type < 2:
                         weapon_price = 100
                         character.currency += weapon_price
-                        print(f"You've found a weapon worth of {weapon_price} coins.")
-                        
+                        print(
+                            f"You've found a weapon worth of {weapon_price} coins.")
+
                         sleep(1)
                     elif loot_type > 7:
                         print("You've found a potion!")

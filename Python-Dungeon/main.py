@@ -5,7 +5,7 @@ from useful_functions import *
 from characters import *
 
 from handle_battle import Battle
-from races import *
+from races_inher import *
 from handle_explore import *
 
 
@@ -28,7 +28,7 @@ def main():
         if menu_choice == 1:
             kills = 0
             dungeon_clear = 0
-            me = Character(hero_name, get_race(hero_name, player_stats))
+            me = set_player(hero_name, player_stats)
             turn = 0
             random_size_dungeon = randrange(5, 11)
 
@@ -36,10 +36,9 @@ def main():
             while True:
 
                 turn += 1
-                random_race = npc_races[randrange(0, len(npc_races))]
+                # random_race = npc_races[randrange(0, len(npc_races))]
 
-                # fix this with inheritance (races_copy.py)
-                enemy = Npc(get_name(random_race()), random_race())
+                enemy = eval(npc_races[randrange(0, len(npc_races))])
 
                 print(f"\nTurn {turn}")
 

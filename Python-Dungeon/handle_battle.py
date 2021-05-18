@@ -1,5 +1,4 @@
 from time import sleep
-from random import randrange
 
 
 class Battle:
@@ -28,9 +27,11 @@ class Battle:
                 player_damage, crit_check = self.player.attack()
                 self.enemy.health -= player_damage
                 if crit_check:
-                    print(f"{self.player.name} landed a critical hit for {player_damage}!")
+                    print(
+                        f"{self.player.name} landed a critical hit for {player_damage}!")
                 else:
-                    print(f"{self.player.name} dealt {player_damage} to {self.enemy.name}")
+                    print(
+                        f"{self.player.name} dealt {player_damage} to {self.enemy.name}")
                 sleep(1)
                 if self.enemy.is_dead():
                     print(f"{self.enemy.name} is dead!")
@@ -38,32 +39,38 @@ class Battle:
                     exp_gained = self.enemy.maxhealth//2
                     self.player.exp += exp_gained
                     sleep(1)
-                    print(f"You've gained {exp_gained} exp for slaying {self.enemy.name}.")
+                    print(
+                        f"You've gained {exp_gained} exp for slaying {self.enemy.name}.")
                     self.player.regen()
                     break
                 enemy_damage, crit_check = self.enemy.attack()
                 self.player.health -= enemy_damage
                 if crit_check:
-                    print(f"{self.enemy.name} landed a critical hit for {enemy_damage}!")
+                    print(
+                        f"{self.enemy.name} landed a critical hit for {enemy_damage}!")
                 else:
-                    print(f"{self.enemy.name} dealt {enemy_damage} to {self.player.name}")
+                    print(
+                        f"{self.enemy.name} dealt {enemy_damage} to {self.player.name}")
 
             else:
                 sleep(1)
                 enemy_damage, crit_check = self.enemy.attack()
                 self.player.health -= enemy_damage
                 if crit_check:
-                    print(f"{self.enemy.name} landed a critical hit for {enemy_damage}!")
+                    print(
+                        f"{self.enemy.name} landed a critical hit for {enemy_damage}!")
                 else:
-                    print(f"{self.enemy.name} dealt {enemy_damage} to {self.player.name}")
+                    print(
+                        f"{self.enemy.name} dealt {enemy_damage} to {self.player.name}")
                 sleep(1)
                 player_damage, crit_check = self.player.attack()
                 self.enemy.health -= player_damage
                 if crit_check:
-                    print(f"{self.player.name} landed a critical hit for {player_damage}!")
+                    print(
+                        f"{self.player.name} landed a critical hit for {player_damage}!")
                 else:
-                    print(f"{self.player.name} dealt {player_damage} to {self.enemy.name}")
-
+                    print(
+                        f"{self.player.name} dealt {player_damage} to {self.enemy.name}")
 
             if self.enemy.is_dead():
                 kills += 1
@@ -71,7 +78,8 @@ class Battle:
                 self.player.exp += exp_gained
                 sleep(1)
                 print(f"{self.enemy.name} is dead!")
-                print(f"You've gained {exp_gained} exp for slaying {self.enemy.name}.")
+                print(
+                    f"You've gained {exp_gained} exp for slaying {self.enemy.name}.")
                 self.player.regen()
                 break
             elif self.player.is_dead():
