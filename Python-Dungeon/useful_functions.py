@@ -37,8 +37,10 @@ def get_menu_choice():  # Enter Market
 
 
 def update_stats(stats_dictionary, hero, char, no_dungeons, kills):
-    stats_dictionary[hero]["exp"] += char.exp
-    stats_dictionary[hero]["coins"] += char.currency
+    stats_dictionary[hero]["level"] = char.level
+    stats_dictionary[hero]["exp"] = char.exp
+    stats_dictionary[hero]["exp_for_level"] = char.exp_for_level
+    stats_dictionary[hero]["coins"] = char.currency
     stats_dictionary[hero]["dungeons_cleared"] += no_dungeons
     stats_dictionary[hero]["kills"] += kills
 
@@ -60,7 +62,9 @@ def check_account(hero, stats_dictionary):
             choice = get_int("Choose your race: ") - 1
             race_chosen = hero_races[choice]
             stats_dictionary[hero]["race"] = race_chosen
+            stats_dictionary[hero]["level"] = 1
             stats_dictionary[hero]["exp"] = 0
+            stats_dictionary[hero]["exp_for_level"] = 100
             stats_dictionary[hero]["coins"] = 0
             stats_dictionary[hero]["dungeons_cleared"] = 0
             stats_dictionary[hero]["kills"] = 0
@@ -68,7 +72,7 @@ def check_account(hero, stats_dictionary):
             print(f"\nFirst time {hero}? Good luck.\n")
 
 
-def set_player(hero, stats_dictionary):
-    for race in hero_races:
-        if stats_dictionary[hero]["race"] == race:
-            return eval(race + "(hero)")
+# def set_player(hero, stats_dictionary):
+#     for race in hero_races:
+#         if stats_dictionary[hero]["race"] == race:
+#             return eval(race + "(hero)")

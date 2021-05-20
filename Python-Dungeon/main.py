@@ -28,7 +28,8 @@ def main():
         if menu_choice == 1:
             kills = 0
             dungeon_clear = 0
-            me = set_player(hero_name, player_stats)
+            me = eval(player_stats[hero_name]["race"] + "()")
+            me.load_char(hero_name, player_stats)
             turn = 0
             random_size_dungeon = randrange(5, 11)
 

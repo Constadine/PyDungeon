@@ -14,14 +14,14 @@ class Explore:
     def __init__(self, character) -> None:
         self.name = character.name
         self.health = character.health
-        self.currency = character.currency
         self.heal_chances = 5
 
     def explore(self, character):
 
         while True:
             sleep(1)
-            choice = get_int("""
+            choice = get_int(f"""\n
+            LvL {character.level} {character.name} - HP:{character.health} MP:{character.mana} Exp: {character.exp}/{character.exp_for_level} Gold: {character.currency}\n
             1 - Train..
             2 - Find place to heal..
             3 - Search for treasure..\n""")
@@ -31,6 +31,7 @@ class Explore:
                 print(events["exp"][random_event])
                 exp_gained = randrange(5, 21)
                 character.exp += exp_gained
+                character.level_up()
                 sleep(1)
                 print(f"You've gained {exp_gained} exp!")
                 sleep(1)
