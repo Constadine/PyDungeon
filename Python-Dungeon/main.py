@@ -61,7 +61,9 @@ def main():
                 exploring.explore(me)
 
         elif menu_choice == 2:
-            print(f"{hero_name}'s stats: {player_stats[hero_name]}")
+            print(f"{hero_name}'s stats: ")
+            for key, value in player_stats[hero_name].items():
+                print(f"{key}: {value}".capitalize().replace("_",' '))
 
         elif menu_choice == 3:
             with open("player_stats.json", "w") as f:
