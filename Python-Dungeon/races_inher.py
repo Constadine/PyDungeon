@@ -6,7 +6,7 @@ from characters import Character, Npc
 class Elf(Character):
 
     def __init__(self):
-        Character.__init__(self)
+        super().__init__()
         self.maxhealth = 100
         self.health = self.maxhealth
         self.mana = 100
@@ -20,7 +20,7 @@ class Elf(Character):
 class Mage(Character):
 
     def __init__(self):
-        Character.__init__(self)
+        super().__init__()
 
         self.maxhealth = 80
         self.health = self.maxhealth
@@ -33,8 +33,8 @@ class Mage(Character):
 
 
 class Goblin(Npc):
-    def __init__(self,):
-        Npc.__init__(self)
+    def __init__(self):
+        super().__init__()
 
         self.name = "Goblin " + goblins[randrange(0, len(goblins))]
         self.health = 15
@@ -48,7 +48,7 @@ class Goblin(Npc):
 
 class Orc(Npc):
     def __init__(self) -> None:
-        Npc.__init__(self)
+        super().__init__()
 
         self.name = orcs[randrange(0, len(orcs))] + " the Orc"
         self.health = 30
