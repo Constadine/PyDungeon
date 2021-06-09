@@ -30,6 +30,7 @@ def main():
             dungeon_clear = 0
             me = eval(player_stats[hero_name]["race"] + "()")
             me.load_char(hero_name, player_stats)
+            me.set_stats()
             turn = 0
             random_size_dungeon = randrange(5, 11)
 
@@ -42,7 +43,6 @@ def main():
                 enemy = eval(npc_races[randrange(0, len(npc_races))])
 
                 print(f"\nTurn {turn}")
-
                 battle_event = Battle(me, enemy)
                 kills += battle_event.fight()
 
@@ -63,7 +63,7 @@ def main():
         elif menu_choice == 2:
             print(f"{hero_name}'s stats: ")
             for key, value in player_stats[hero_name].items():
-                print(f"{key}: {value}".capitalize().replace("_",' '))
+                print(f"{key}: {value}".capitalize().replace("_", ' '))
 
         elif menu_choice == 3:
             with open("player_stats.json", "w") as f:

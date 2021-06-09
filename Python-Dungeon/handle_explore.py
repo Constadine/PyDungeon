@@ -21,7 +21,7 @@ class Explore:
         while True:
             sleep(1)
             choice = get_int(f"""\n
-            LvL {character.level} {character.name} - HP:{character.health} MP:{character.mana} Exp: {character.exp}/{character.exp_for_level} Gold: {character.currency}\n
+            LvL {character.level} {character.name} - HP:{character.health}/{character.max_health} MP:{character.mana}/{character.max_mana} Exp: {character.exp}/{character.exp_for_level} Gold: {character.currency}\n
             1 - Train..
             2 - Find place to heal..
             3 - Search for treasure..\n""")
@@ -37,7 +37,7 @@ class Explore:
                 sleep(1)
                 break
             elif choice == 2:
-                if character.health == character.maxhealth:
+                if character.health == character.max_health:
                     print("You are at max health!")
                     continue
                 else:
@@ -46,8 +46,8 @@ class Explore:
                         print(events["heal"][random_event])
                         heal = randrange(5, 8)
                         character.health += heal
-                        if character.health > character.maxhealth:
-                            character.health = character.maxhealth
+                        if character.health > character.max_health:
+                            character.health = character.max_health
                         sleep(1)
                         print(f"You've healed for {heal} hp.")
                         sleep(1)

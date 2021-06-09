@@ -7,7 +7,7 @@ class Battle:
         self.enemy = enemy
 
     def print_state(self):
-        print(f"LvL {self.player.level} {self.player.name} - HP:{self.player.health} MP:{self.player.mana} Exp: {self.player.exp}/{self.player.exp_for_level} Gold: {self.player.currency}")
+        print(f"LvL {self.player.level} {self.player.name} - HP:{self.player.health}/{self.player.max_health} MP:{self.player.mana}/{self.player.max_mana} Exp: {self.player.exp}/{self.player.exp_for_level} Gold: {self.player.currency}")
         print(f"{self.enemy.name} - HP:{self.enemy.health}")
 
     def fight(self):
@@ -36,7 +36,7 @@ class Battle:
                 if self.enemy.is_dead():
                     print(f"{self.enemy.name} is dead!")
                     kills += 1
-                    exp_gained = self.enemy.maxhealth//2
+                    exp_gained = self.enemy.max_health//2
                     self.player.exp += exp_gained
                     self.player.level_up()
                     sleep(1)
@@ -75,7 +75,7 @@ class Battle:
 
             if self.enemy.is_dead():
                 kills += 1
-                exp_gained = self.enemy.maxhealth//2
+                exp_gained = self.enemy.max_health//2
                 self.player.exp += exp_gained
                 self.player.level_up()
                 sleep(1)
