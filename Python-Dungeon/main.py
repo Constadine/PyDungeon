@@ -1,12 +1,9 @@
+import json
 from random import randrange, seed
 from datetime import datetime
-import json
-from useful_functions import *
-from characters import *
-
 from handle_battle import Battle
-from races_inher import *
-from handle_explore import *
+from handle_explore import Explore
+from useful_functions import *
 
 
 def main():

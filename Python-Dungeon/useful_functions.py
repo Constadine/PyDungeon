@@ -1,4 +1,5 @@
-from races_inher import *
+from os import X_OK
+from races import *
 from names_list import *
 from time import sleep
 
