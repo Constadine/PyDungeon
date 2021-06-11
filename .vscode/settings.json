@@ -1,7 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "./Python-Dungeon",
-        "./Pokemon"
-    ],
-    "python.pythonPath": "D:\\Asmodinos_Stuff\\Knowledge_Power\\Programming\\Python\\python.exe"
-}
