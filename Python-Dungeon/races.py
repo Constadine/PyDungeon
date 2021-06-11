@@ -19,6 +19,8 @@ class Elf(Character):
         self.speed = 3
         self.hp_regeneration = 2
         self.mp_regeneration = 2
+        self.skills = [self.wind_slice]
+
 
     def wind_slice(self):
         mana_cost = 30
@@ -46,7 +48,6 @@ class Elf(Character):
     def __getitem__(self, skill):
         return self.skills[skill]
 
-    skills = [wind_slice]
 
 
 class Mage(Character):
@@ -103,4 +104,3 @@ class Orc(Npc):
 npc_races = ['Orc()', 'Goblin()']
 hero_races = ['Elf', 'Mage']
 
-con = Elf()

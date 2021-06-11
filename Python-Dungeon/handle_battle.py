@@ -38,8 +38,7 @@ class Battle:
                     else:
                         skill_choice = get_int("\nChoose a skill: ")
 
-                        # please fix this
-                        player_damage = player.skills[skill_choice - 1](player)
+                        player_damage = player.skills[skill_choice - 1]()
                         if player_damage:
                             enemy.health -= player_damage
                             break
