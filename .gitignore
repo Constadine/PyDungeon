@@ -3,7 +3,5 @@
 Pokemon/pokemons.json
 test.py
 *.json
-*.json
-*.json
-*.json
+*.pyc
 Python-Dungeon/player_stats.json
