@@ -1,6 +1,3 @@
-.vscode/settings.json
-Pokemon/pokemons.json
-test.py
-*.json
+**/.vscode/
 *.pyc
-
+Pokemon/pokemons.json
