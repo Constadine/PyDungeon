@@ -1,3 +1,5 @@
 **/.vscode/
 *.pyc
 Pokemon/pokemons.json
+**/venv/
+*venv
