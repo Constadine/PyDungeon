@@ -11,6 +11,10 @@ class Character(ABC):  # add exp and levels. Health and damage will increase per
         self.exp_for_level = 100
         self.level = 1
 
+        self.afflictions = []
+        self.buffs = []
+        
+
     def load_char(self, name, player_stats):
         for key in player_stats.keys():
             if key == name:
@@ -60,6 +64,8 @@ class Character(ABC):  # add exp and levels. Health and damage will increase per
 class Npc(ABC):
     def __init__(self, level=1):
         self.level = level
+        self.afflictions = []
+        self.buffs = []
 
     def is_dead(self):
         return self.health <= 0

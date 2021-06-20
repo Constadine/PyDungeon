@@ -42,6 +42,9 @@ class Elf(Character):
             print(f"Not enough mana! {self.mana}/{mana_cost}")
             return False
 
+    def poison_arrow(self, enemy):
+        enemy.afflictions.append("Poison")
+
     def __len__(self):
         return len(self.skills)
 
@@ -101,6 +104,41 @@ class Orc(Npc):
         self.speed = 1
 
 
+# implement this on handle battle
+
+afflictions_dict = {
+    "Poison": {"damage": 2, "duration": 3}
+}
+
+def check_afflictions(char,afflictions_dict, rounds):
+    if "Poison" in char.afflictions:
+        duration = afflictions_dict["Poison"]["duration"]
+        
+        char.health -= afflictions_dict["Poison"]["damage"]
+        print(char.health)
+        duration -= rounds
+        print(duration)
+        if duration == 0:
+            char.afflictions.remove("Poison")
+            print('popped')
+            return True
 npc_races = ['Orc()', 'Goblin()']
 hero_races = ['Elf', 'Mage']
+
+legolas = Elf()
+bob = Orc()
+rounds = 0
+legolas.poison_arrow(bob)   
+while True:
+
+
+    end = check_afflictions(bob, afflictions_dict, rounds)
+    rounds += 1
+    input("enter")
+    if end: break
+
+
+
+
+
 
