@@ -125,17 +125,17 @@ def check_afflictions(char,afflictions_dict, rounds):
 npc_races = ['Orc()', 'Goblin()']
 hero_races = ['Elf', 'Mage']
 
-legolas = Elf()
-bob = Orc()
-rounds = 0
-legolas.poison_arrow(bob)   
-while True:
+# legolas = Elf()
+# bob = Orc()
+# rounds = 0
+# legolas.poison_arrow(bob)   
+# while True:
 
 
-    end = check_afflictions(bob, afflictions_dict, rounds)
-    rounds += 1
-    input("enter")
-    if end: break
+#     end = check_afflictions(bob, afflictions_dict, rounds)
+#     rounds += 1
+#     input("enter")
+#     if end: break
 
 
 
