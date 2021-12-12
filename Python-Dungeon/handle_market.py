@@ -3,13 +3,6 @@ from useful_functions import get_int
 from list_items import items
 from time import sleep
 
-# class Character:
-#     money = 500
-#     inventory = ["Vigor Root"]
-
-#     def showoff(self):
-#         print(f"Money: {self.money}\nItems: {[i for i in self.inventory]}")
-
 class Market:
     def __init__(self, character=None) -> None:
         self.name = character
