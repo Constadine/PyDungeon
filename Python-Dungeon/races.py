@@ -1,7 +1,7 @@
 from random import randrange
 from time import sleep
 
-from names_list import *
+from list_names import *
 from characters import Character, Npc
 
 
@@ -19,10 +19,10 @@ class Elf(Character):
         self.speed = 3
         self.hp_regeneration = 2
         self.mp_regeneration = 2
-        self.skills = [self.wind_slice]
+        self.skills = [self.wind_slice, self.poison_arrow]
 
 
-    def wind_slice(self):
+    def wind_slice(self, *args, **kwargs):
         mana_cost = 30
         if self.mana >= mana_cost:
 
@@ -43,7 +43,14 @@ class Elf(Character):
             return False
 
     def poison_arrow(self, enemy):
-        enemy.afflictions.append("Poison")
+        mana_cost = 20
+        if self.mana >= mana_cost:
+
+            self.mana -= mana_cost
+            enemy.afflictions.append("Poison")
+        else:
+            print(f"Not enough mana! {self.mana}/{mana_cost}")
+            return False
 
     def __len__(self):
         return len(self.skills)
@@ -104,38 +111,10 @@ class Orc(Npc):
         self.speed = 1
 
 
-# implement this on handle battle
 
-afflictions_dict = {
-    "Poison": {"damage": 2, "duration": 3}
-}
 
-def check_afflictions(char,afflictions_dict, rounds):
-    if "Poison" in char.afflictions:
-        duration = afflictions_dict["Poison"]["duration"]
-        
-        char.health -= afflictions_dict["Poison"]["damage"]
-        print(char.health)
-        duration -= rounds
-        print(duration)
-        if duration == 0:
-            char.afflictions.remove("Poison")
-            print('popped')
-            return True
 npc_races = ['Orc()', 'Goblin()']
 hero_races = ['Elf', 'Mage']
-
-legolas = Elf()
-bob = Orc()
-rounds = 0
-legolas.poison_arrow(bob)   
-while True:
-
-
-    end = check_afflictions(bob, afflictions_dict, rounds)
-    rounds += 1
-    input("enter")
-    if end: break
 
 
 

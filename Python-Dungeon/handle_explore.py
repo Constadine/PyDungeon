@@ -1,20 +1,15 @@
 from random import randrange
 from useful_functions import get_int
 from time import sleep
+from list_events import events
 
-events = {
-    "exp": ["Sliced a tree to pieces.", "Your chest is destroyed."],
-    "heal": ["You sit near a magical waterfall.", "You rest near a fire."],
-    "loot": ["You found something behind a rock..", "You opened an old chest.."]
-
-}
 
 
 class Explore:
     def __init__(self, character) -> None:
         self.name = character.name
         self.health = character.health
-        self.heal_chances = 5
+        self.heal_chances = character.potions
 
     def explore(self, character):
 
@@ -23,7 +18,7 @@ class Explore:
             choice = get_int(f"""\n
             LvL {character.level} {character.name} - HP:{character.health}/{character.max_health} MP:{character.mana}/{character.max_mana} Exp: {character.exp}/{character.exp_for_level} Gold: {character.currency}\n
             1 - Train..
-            2 - Find place to heal..
+            2 - Rest and drink potion..
             3 - Search for treasure..\n""")
             sleep(1)
             if choice == 1:
@@ -59,16 +54,20 @@ class Explore:
                         continue
             elif choice == 3:
                 random_event = randrange(0, len(events["loot"]))
-                chance_for_loot = randrange(0, 3)
+                chance_for_loot = randrange(0, 2)
                 if chance_for_loot == 1:
                     print(events["loot"][random_event])
                     sleep(1)
                     loot_type = randrange(0, 11)
                     if loot_type < 2:
                         weapon_price = 100
-                        character.currency += weapon_price
-                        print(
-                            f"You've found a weapon worth of {weapon_price} coins.")
+                        if "Lucky Penny" in character.inventory:
+                            character.currency += weapon_price * 2
+                            print(f"You've found a weapon worth of {weapon_price} coins. Gained {weapon_price} more from Lucky Penny")
+                        else:
+                            character.currency += weapon_price
+                            print(f"You've found a weapon worth of {weapon_price} coins.")
+
 
                         sleep(1)
                     elif loot_type > 7:
@@ -77,9 +76,12 @@ class Explore:
                         sleep(1)
                     else:
                         random_coins = randrange(10, 41)
-                        character.currency += random_coins
-                        print(
-                            f"Shiny coins.. You've gained {random_coins} coins!")
+                        if "Lucky Penny" in character.inventory:
+                            character.currency += random_coins * 2
+                            print(f"Shiny coins.. You've gained {random_coins*2} coins! Doubled by Lucky Penny.")
+                        else:
+                            character.currency += random_coins 
+                            print(f"Shiny coins.. You've gained {random_coins} coins!")
                         sleep(1)
                     break
                 else:
