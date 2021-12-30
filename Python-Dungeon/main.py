@@ -49,15 +49,11 @@ def main():
                     dungeon_clear += 1
                     update_stats(player_stats, hero_name,
                                  me, dungeon_clear, kills)
-                    with open("player_stats.json", "w") as f:
-                        json.dump(player_stats, f)
                     break
                 elif me.is_dead():
                     print("You died.")
                     update_stats(player_stats, hero_name,
                                  me, dungeon_clear, kills)
-                    with open("player_stats.json", "w") as f:
-                        json.dump(player_stats, f)
                     break
 
                 exploring.explore(me)
@@ -78,5 +74,5 @@ def main():
             print("May the light never find you..")
             break
 
-
-main()
+if __name__ == "__main__":
+    main()

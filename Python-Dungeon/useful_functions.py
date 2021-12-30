@@ -16,15 +16,6 @@ def get_int(prompt):
     return value
 
 
-# def get_name(race):
-#     if isinstance(race, Orc):
-#         random_name = orcs[randrange(0, len(orcs))] + " the Orc"
-#         return random_name
-#     elif isinstance(race, Goblin):
-#         random_name = ("Goblin " + goblins[randrange(0, len(goblins))])
-#         return random_name
-
-
 def get_menu_choice():  # Enter Market
 
     print("Welcome to Python-Dungeon!")
@@ -49,10 +40,9 @@ def update_stats(stats_dictionary, hero, char, no_dungeons, kills):
     s["dungeons_cleared"] += no_dungeons
     s["kills"] += kills
     for i, owned_item in reversed(list(enumerate(s['inventory']))): # CANT ITERATE TWICE. WHY?
-        print(f"owned {owned_item}")
         x = 0
+        print(items)
         while x < len(items):
-
             if (owned_item == items[x]['name']) and (items[x]['type'] == 'one_use'):
                 s['inventory'].pop(i)
                 print(f"{owned_item} has expired so you dropped it.")
@@ -84,9 +74,3 @@ def check_account(hero, stats_dictionary):
         stats_dictionary[hero]["kills"] = 0
         sleep(1)
         print(f"\nFirst time {hero}? Good luck.\n")
-
-
-# def set_player(hero, stats_dictionary):
-#     for race in hero_races:
-#         if stats_dictionary[hero]["race"] == race:
-#             return eval(race + "(hero)")

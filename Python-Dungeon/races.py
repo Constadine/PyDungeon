@@ -1,7 +1,7 @@
 from random import randrange
 from time import sleep
 
-from list_names import *
+from list_names import goblins, orcs
 from characters import Character, Npc
 
 

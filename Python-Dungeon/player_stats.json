@@ -1,1 +1,1 @@
-{"Lunadin": {"race": "Elf", "level": 5, "exp": 43, "exp_for_level": 146, "coins": 986, "inventory": ["Potion Holder", "Vigor Root", "Lucky Penny"], "dungeons_cleared": 34, "kills": 45}}
+{"Lunadin": {"race": "Elf", "level": 6, "exp": 35, "exp_for_level": 160, "coins": 986, "inventory": ["Potion Holder", "Vigor Root", "Lucky Penny"], "dungeons_cleared": 48, "kills": 59}, "Test": {"race": "Elf", "level": 1, "exp": 7, "exp_for_level": 100, "coins": 200, "inventory": ["Lucky Penny"], "dungeons_cleared": 1, "kills": 1}}
