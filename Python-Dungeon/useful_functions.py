@@ -59,7 +59,7 @@ def check_account(hero, stats_dictionary):
             break
     else:
         stats_dictionary[hero] = {}
-        print(f"Available races\n"+"-"*15)
+        print("Available races\n"+"-"*15)
         for idx, x in enumerate(hero_races):
             print(f"{idx +1}: {x}")
         choice = get_int("Choose your race: ") - 1

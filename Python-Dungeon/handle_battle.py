@@ -2,19 +2,6 @@ from buffs_afflictions import afflictions
 from time import sleep
 from useful_functions import get_int
 
-def check_afflictions(char,afflictions_dict, duration):
-
-    if "Poison" in char.afflictions:
-        if duration is None:
-            duration = afflictions_dict["Poison"]["duration"]
-        damage = afflictions_dict["Poison"]["damage"]
-        char.health -= damage
-        duration -= 1
-
-        print(f"{char.name} took {damage} poison damage. ({duration} rounds left)")
-        if duration == 0:
-            char.afflictions.remove("Poison")
-        return duration
 
 class Battle:
     def __init__(self, character, enemy):
@@ -26,6 +13,21 @@ class Battle:
     def print_state(self):
         print(f"LvL {self.character.level} {self.character.name} - HP:{self.character.health}/{self.character.max_health} MP:{self.character.mana}/{self.character.max_mana} Exp: {self.character.exp}/{self.character.exp_for_level} Gold: {self.character.currency}")
         print(f"{self.enemy.name} - HP:{self.enemy.health}")
+    
+    # def check_afflictions(self, char, duration):
+    
+    #     if "Poison" in char.afflictions:
+    #         if duration is None:
+    #             duration = afflictions["Poison"]["duration"]
+    #         damage = afflictions["Poison"]["damage"]
+    #         char.health -= damage
+    #         duration -= 1
+    
+    #         print(f"{char.name} took {damage} poison damage. ({duration} rounds left)")
+    #         if duration == 0:
+    #             char.afflictions.remove("Poison")
+    #         return duration
+    
 
     def fight(self):
         def player_turn(character, enemy):
